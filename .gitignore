@@ -1,0 +1,14 @@
+# Claude folders
+.claude/
+**/.claude/
+
+# Masterplan
+masterplan.md
+design.md
+
+# Env files
+.env
+.env.*
+
+# Zip files
+*.zip
