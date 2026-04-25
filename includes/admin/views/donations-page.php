@@ -11,11 +11,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<form method="get" style="margin-bottom: 24px;">
 		<input type="hidden" name="page" value="bytesis-donation" />
-		<input type="text" name="s" value="<?php echo esc_attr( isset($_GET['s']) ? $_GET['s'] : '' ); ?>" placeholder="Search by name, email, or TXN ID..." style="padding: 10px 16px; border-radius: 50px; border: 1px solid #ccc; width: 300px; font-family: 'figmaSans';" />
+		<input type="text" name="s" value="<?php echo esc_attr( isset($_GET['s']) ? $_GET['s'] : '' ); ?>" placeholder="Search by name, email, or TXN ID..." style="padding: 10px 16px; border-radius: 50px; border: 1px solid #ccc; width: 300px; font-family: 'bytesisSans';" />
 		<button type="submit" class="bytesis-btn-primary" style="padding: 10px 24px;">Search</button>
 	</form>
 
-	<table style="width: 100%; border-collapse: collapse; text-align: left; font-family: 'figmaSans', sans-serif;">
+	<table style="width: 100%; border-collapse: collapse; text-align: left; font-family: 'bytesisSans', sans-serif;">
 		<thead>
 			<tr style="border-bottom: 2px solid #e2e2e2;">
 				<th style="padding: 12px 8px;"><span class="bytesis-mono-label">Donor</span></th>
@@ -46,7 +46,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 							?>
 							<span style="color: <?php echo $status_color; ?>; font-weight: 480; text-transform: capitalize;"><?php echo esc_html($row->status); ?></span>
 						</td>
-						<td style="padding: 16px 8px; font-family: 'figmaMono', monospace; font-size: 12px;"><?php echo esc_html($row->transaction_id ?: '-'); ?></td>
+						<td style="padding: 16px 8px; font-family: 'bytesisMono', monospace; font-size: 12px;"><?php echo esc_html($row->transaction_id ?: '-'); ?></td>
 						<td style="padding: 16px 8px; color: #666; font-weight: 330;"><?php echo esc_html(date('M j, Y g:i A', strtotime($row->created_at))); ?></td>
 					</tr>
 				<?php endforeach; ?>

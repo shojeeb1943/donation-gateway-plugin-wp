@@ -46,7 +46,7 @@ class Admin_Menu {
 		if ( strpos( $hook, 'bytesis-donation' ) !== false ) {
 			wp_enqueue_style(
 				'bytesis-donation-admin-css',
-				BYTESIS_DONATION_PLUGIN_URL . 'assets/admin/css/figma-admin.css',
+				BYTESIS_DONATION_PLUGIN_URL . 'assets/admin/css/bytesis-admin.css',
 				array(),
 				BYTESIS_DONATION_VERSION,
 				'all'

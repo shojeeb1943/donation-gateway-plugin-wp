@@ -1,18 +1,18 @@
-/* Figma-Inspired Admin Design */
+/* Bytesis Admin Design */
 
 @font-face {
-    font-family: 'figmaSans';
+    font-family: 'bytesisSans';
     src: local('-apple-system'), local('BlinkMacSystemFont'), local('Segoe UI'), local('Roboto'); /* Fallbacks until actual fonts are loaded */
 }
 
 @font-face {
-    font-family: 'figmaMono';
+    font-family: 'bytesisMono';
     src: local('Menlo'), local('Consolas'), local('monospace');
 }
 
 /* Base wrapper styling */
 .bytesis-admin-wrap {
-    font-family: 'figmaSans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: 'bytesisSans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     color: #000000;
     background-color: #ffffff;
     padding: 32px;
@@ -39,7 +39,7 @@
     letter-spacing: -0.14px;
 }
 
-/* Figma Pill Buttons */
+/* Bytesis Pill Buttons */
 .bytesis-btn-primary {
     background-color: #000000;
     color: #ffffff;
@@ -88,7 +88,7 @@
 
 /* Mono Labels */
 .bytesis-mono-label {
-    font-family: 'figmaMono', monospace;
+    font-family: 'bytesisMono', monospace;
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 0.6px;
