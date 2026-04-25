@@ -13,7 +13,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<!-- Simple JS Tab implementation -->
 		<button class="bytesis-btn-primary tab-link active" onclick="openTab(event, 'general')">General</button>
 		<button class="bytesis-btn-secondary tab-link" onclick="openTab(event, 'funds')">Funds</button>
-		<button class="bytesis-btn-secondary tab-link" onclick="openTab(event, 'sslcommerz')">SSLCommerz</button>
 		<button class="bytesis-btn-secondary tab-link" onclick="openTab(event, 'email')">Email</button>
 	</div>
 
@@ -25,13 +24,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<h2>General Configuration</h2>
 			<table class="form-table">
 				<tr>
-					<th scope="row"><span class="bytesis-mono-label">Thank You URL</span></th>
-					<td>
-						<input type="url" name="bytesis_donation_thankyou_url" value="<?php echo esc_attr( get_option('bytesis_donation_thankyou_url') ); ?>" class="regular-text" placeholder="https://..." />
-						<p class="description">Redirect donors here after a successful payment.</p>
-					</td>
-				</tr>
-				<tr>
 					<th scope="row"><span class="bytesis-mono-label">Preset Amounts</span></th>
 					<td>
 						<input type="text" name="bytesis_donation_preset_amounts" value="<?php echo esc_attr( get_option('bytesis_donation_preset_amounts', '50, 100, 250, 500') ); ?>" class="regular-text" />
@@ -39,38 +31,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 					</td>
 				</tr>
 			</table>
-		</div>
-
-		<!-- SSLCOMMERZ TAB -->
-		<div id="sslcommerz" class="tab-content" style="display:none;">
-			<h2>SSLCommerz Credentials</h2>
-			<table class="form-table">
-				<tr>
-					<th scope="row"><span class="bytesis-mono-label">Mode</span></th>
-					<td>
-						<select name="bytesis_donation_sslcommerz_mode">
-							<option value="sandbox" <?php selected(get_option('bytesis_donation_sslcommerz_mode'), 'sandbox'); ?>>Sandbox (Test)</option>
-							<option value="live" <?php selected(get_option('bytesis_donation_sslcommerz_mode'), 'live'); ?>>Live (Production)</option>
-						</select>
-					</td>
-				</tr>
-				<tr>
-					<th scope="row"><span class="bytesis-mono-label">Sandbox Store ID</span></th>
-					<td><input type="text" name="bytesis_donation_sslcommerz_sandbox_id" value="<?php echo esc_attr( get_option('bytesis_donation_sslcommerz_sandbox_id') ); ?>" class="regular-text" /></td>
-				</tr>
-				<tr>
-					<th scope="row"><span class="bytesis-mono-label">Sandbox Password</span></th>
-					<td><input type="password" name="bytesis_donation_sslcommerz_sandbox_pass" value="<?php echo esc_attr( get_option('bytesis_donation_sslcommerz_sandbox_pass') ); ?>" class="regular-text" /></td>
-				</tr>
-				<tr>
-					<th scope="row"><span class="bytesis-mono-label">Live Store ID</span></th>
-					<td><input type="text" name="bytesis_donation_sslcommerz_live_id" value="<?php echo esc_attr( get_option('bytesis_donation_sslcommerz_live_id') ); ?>" class="regular-text" /></td>
-				</tr>
-				<tr>
-					<th scope="row"><span class="bytesis-mono-label">Live Password</span></th>
-					<td><input type="password" name="bytesis_donation_sslcommerz_live_pass" value="<?php echo esc_attr( get_option('bytesis_donation_sslcommerz_live_pass') ); ?>" class="regular-text" /></td>
-				</tr>
-			</table>
+			<p style="margin-top: 16px; padding: 12px 16px; background: rgba(0,0,0,0.03); border-radius: 6px; font-weight: 330; letter-spacing: -0.14px;">
+				<strong>Payment & Redirects:</strong> SSLCommerz credentials, sandbox/live mode, and success/fail page redirects are managed in
+				<a href="<?php echo esc_url( admin_url('admin.php?page=wc-settings&tab=checkout&section=sslcommerz') ); ?>">WooCommerce → Settings → Payments → SSLCommerz</a>.
+			</p>
 		</div>
 
 		<!-- EMAIL TAB -->

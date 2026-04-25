@@ -14,9 +14,6 @@ class WooCommerce_Integration {
 		// Handle WooCommerce Order Status changes to record successful donations
 		add_action( 'woocommerce_order_status_completed', array( $this, 'handle_order_completed' ), 10, 2 );
 		add_action( 'woocommerce_order_status_processing', array( $this, 'handle_order_completed' ), 10, 2 );
-
-		// Redirect to custom thank you page
-		add_action( 'template_redirect', array( $this, 'custom_thank_you_redirect' ) );
 	}
 
 	public function process_donation_form() {
@@ -96,7 +93,7 @@ class WooCommerce_Integration {
 				'donor_name'  => $donor_name,
 				'donor_email' => $donor_email,
 				'donor_phone' => $donor_phone,
-				'fund_id'     => $fund['id'], // Storing the string ID without the 'fund_' prefix
+				'fund_id'     => $fund['id'],
 				'fund_name'   => $fund['name'],
 				'amount'      => $amount,
 				'wc_order_id' => $order->get_id(),
@@ -105,7 +102,7 @@ class WooCommerce_Integration {
 			)
 		);
 
-		// Redirect to WooCommerce payment page
+		// Redirect to WooCommerce payment page — SSLCommerz handles the rest
 		wp_redirect( $order->get_checkout_payment_url( true ) );
 		exit;
 	}
@@ -128,25 +125,5 @@ class WooCommerce_Integration {
 			),
 			array( 'wc_order_id' => $order_id )
 		);
-	}
-
-	public function custom_thank_you_redirect() {
-		if ( ! is_wc_endpoint_url( 'order-received' ) ) {
-			return;
-		}
-
-		global $wp;
-		$order_id = isset( $wp->query_vars['order-received'] ) ? intval( $wp->query_vars['order-received'] ) : 0;
-
-		if ( $order_id ) {
-			$order = wc_get_order( $order_id );
-			if ( $order && $order->get_meta( '_is_bytesis_donation' ) === 'yes' ) {
-				$thank_you_url = get_option( 'bytesis_donation_thankyou_url' );
-				if ( ! empty( $thank_you_url ) ) {
-					wp_redirect( esc_url_raw( $thank_you_url ) );
-					exit;
-				}
-			}
-		}
 	}
 }

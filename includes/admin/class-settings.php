@@ -15,12 +15,6 @@ class Settings {
 		// Group: bytesis_donation_settings
 		$settings = array(
 			'bytesis_donation_preset_amounts',
-			'bytesis_donation_thankyou_url',
-			'bytesis_donation_sslcommerz_mode',
-			'bytesis_donation_sslcommerz_sandbox_id',
-			'bytesis_donation_sslcommerz_sandbox_pass',
-			'bytesis_donation_sslcommerz_live_id',
-			'bytesis_donation_sslcommerz_live_pass',
 			'bytesis_donation_smtp_host',
 			'bytesis_donation_smtp_port',
 			'bytesis_donation_smtp_user',
