@@ -10,54 +10,118 @@
     src: local('Menlo'), local('Consolas'), local('monospace');
 }
 
+/* =========================================
+   FORM WRAPPER — Card with subtle shadow
+   ========================================= */
 .bytesis-donation-form-wrapper {
     font-family: 'bytesisSans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     color: #000000;
-    max-width: 500px;
+    max-width: 520px;
     margin: 0 auto;
     background: #ffffff;
-    padding: 32px;
+    padding: 40px 36px;
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
     font-feature-settings: "kern" 1;
 }
 
-.bytesis-form-group {
-    margin-bottom: 24px;
+/* =========================================
+   HEADER — Title & Subtitle
+   ========================================= */
+.bytesis-form-header {
+    margin-bottom: 28px;
 }
 
+.bytesis-form-title {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+    color: #000000;
+    margin: 0 0 8px 0;
+}
+
+.bytesis-form-subtitle {
+    font-size: 14px;
+    font-weight: 330;
+    line-height: 1.5;
+    letter-spacing: -0.1px;
+    color: #555555;
+    margin: 0;
+}
+
+/* =========================================
+   FORM GROUPS & LAYOUT
+   ========================================= */
+.bytesis-form-group {
+    margin-bottom: 20px;
+}
+
+/* Side-by-side row (Email + Phone) */
+.bytesis-form-row {
+    display: flex;
+    gap: 16px;
+}
+
+.bytesis-form-col {
+    flex: 1;
+    min-width: 0;
+}
+
+/* =========================================
+   LABELS — Mono uppercase
+   ========================================= */
 .bytesis-mono-label {
-    font-family: 'bytesisMono', monospace;
-    font-size: 12px;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.6px;
+    font-family: 'bytesisSans', sans-serif;
+    font-size: 14px;
+    font-weight: 480;
+    letter-spacing: normal;
     color: #000000;
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 }
 
+/* =========================================
+   INPUTS & SELECT
+   ========================================= */
 .bytesis-input {
     width: 100%;
-    padding: 12px 16px;
+    padding: 12px 14px;
     font-family: 'bytesisSans', sans-serif;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 330;
     letter-spacing: -0.14px;
     color: #000000;
     background-color: #ffffff;
-    border: 1px solid #e2e2e2;
+    border: 1px solid #d9d9d9;
     border-radius: 6px;
     transition: border-color 0.2s;
     box-sizing: border-box;
 }
 
-.bytesis-input:focus {
-    outline: dashed 2px #000000;
-    outline-offset: 2px;
-    border-color: #000000;
+.bytesis-input::placeholder {
+    color: #999999;
+    font-weight: 330;
 }
 
+.bytesis-input:focus {
+    outline: none;
+    border-color: #000000;
+    box-shadow: 0 0 0 2px rgba(0,0,0,0.06);
+}
+
+select.bytesis-input {
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 8.5L1 3.5h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+}
+
+/* =========================================
+   AMOUNT BUTTONS — Pill preset buttons
+   ========================================= */
 .bytesis-amount-buttons {
     display: flex;
     flex-wrap: wrap;
@@ -67,19 +131,21 @@
 .bytesis-preset-btn {
     background-color: #ffffff;
     color: #000000;
-    border: 1px solid #e2e2e2;
+    border: 1px solid #d9d9d9;
     border-radius: 50px;
-    padding: 8px 18px;
-    font-size: 16px;
+    padding: 8px 20px;
+    font-size: 14px;
     font-weight: 400;
-    letter-spacing: -0.14px;
+    letter-spacing: -0.1px;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: all 0.15s ease;
     font-family: 'bytesisSans', sans-serif;
+    line-height: 1.4;
 }
 
 .bytesis-preset-btn:hover {
-    background-color: rgba(0, 0, 0, 0.04);
+    background-color: #f5f5f5;
+    border-color: #bbb;
 }
 
 .bytesis-preset-btn.active {
@@ -93,12 +159,22 @@
     outline-offset: 2px;
 }
 
-.bytesis-btn-primary {
+/* Custom amount input spacing */
+.bytesis-custom-amount-wrapper {
+    margin-top: 12px;
+}
+
+/* =========================================
+   DONATE BUTTON — Full-width black pill
+   ========================================= */
+.bytesis-btn-donate {
+    width: 100%;
+    display: block;
     background-color: #000000;
     color: #ffffff;
     border: none;
     border-radius: 50px;
-    padding: 12px 24px;
+    padding: 14px 24px;
     font-size: 16px;
     font-weight: 480;
     letter-spacing: normal;
@@ -107,21 +183,57 @@
     font-family: 'bytesisSans', sans-serif;
 }
 
-.bytesis-btn-primary.full-width {
-    width: 100%;
-    display: block;
+.bytesis-btn-donate:hover {
+    opacity: 0.85;
 }
 
-.bytesis-btn-primary:hover {
-    opacity: 0.8;
-}
-
-.bytesis-btn-primary:focus {
+.bytesis-btn-donate:focus {
     outline: dashed 2px #000000;
     outline-offset: 2px;
 }
 
-.bytesis-btn-primary:disabled {
-    opacity: 0.5;
+.bytesis-btn-donate:disabled {
+    opacity: 0.45;
     cursor: not-allowed;
+}
+
+.bytesis-form-submit {
+    margin-top: 8px;
+    margin-bottom: 12px;
+}
+
+/* =========================================
+   TERMS TEXT
+   ========================================= */
+.bytesis-form-terms {
+    font-size: 12px;
+    font-weight: 330;
+    color: #888888;
+    text-align: center;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.bytesis-form-terms a {
+    color: #000000;
+    text-decoration: underline;
+}
+
+.bytesis-form-terms a:hover {
+    opacity: 0.7;
+}
+
+/* =========================================
+   RESPONSIVE — Stack email/phone on mobile
+   ========================================= */
+@media (max-width: 560px) {
+    .bytesis-donation-form-wrapper {
+        padding: 28px 20px;
+        max-width: 100%;
+    }
+
+    .bytesis-form-row {
+        flex-direction: column;
+        gap: 0;
+    }
 }
