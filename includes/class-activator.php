@@ -28,5 +28,16 @@ class Activator {
 
 		require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 		dbDelta( $sql );
+
+		// Flush rewrite rules so WooCommerce endpoints (order-pay, etc.) resolve correctly
+		flush_rewrite_rules();
+
+		// Verify WooCommerce checkout page exists — warn admin if not
+		if ( class_exists( 'WooCommerce' ) ) {
+			$checkout_page_id = wc_get_page_id( 'checkout' );
+			if ( $checkout_page_id <= 0 || get_post_status( $checkout_page_id ) !== 'publish' ) {
+				set_transient( 'bytesis_donation_missing_checkout', true, 60 );
+			}
+		}
 	}
 }

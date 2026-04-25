@@ -77,3 +77,30 @@ function bytesis_donation_missing_wc_notice() {
 	</div>
 	<?php
 }
+
+// Show warning if WooCommerce checkout page is missing
+function bytesis_donation_checkout_notice() {
+	if ( get_transient( 'bytesis_donation_missing_checkout' ) ) {
+		?>
+		<div class="notice notice-warning is-dismissible">
+			<p><strong>Bytesis Donation:</strong> WooCommerce Checkout page is not set or not published. Donations will fail with a "Page not found" error.
+			<a href="<?php echo esc_url( admin_url('admin.php?page=wc-settings&tab=advanced') ); ?>">Fix it here →</a></p>
+		</div>
+		<?php
+		delete_transient( 'bytesis_donation_missing_checkout' );
+	}
+
+	// Also check on every admin load for ongoing issues
+	if ( class_exists( 'WooCommerce' ) ) {
+		$checkout_page_id = wc_get_page_id( 'checkout' );
+		if ( $checkout_page_id <= 0 || get_post_status( $checkout_page_id ) !== 'publish' ) {
+			?>
+			<div class="notice notice-warning is-dismissible">
+				<p><strong>Bytesis Donation:</strong> WooCommerce Checkout page is missing or unpublished. The donation payment flow will not work until this is fixed.
+				<a href="<?php echo esc_url( admin_url('admin.php?page=wc-settings&tab=advanced') ); ?>">Go to WooCommerce → Settings → Advanced →</a></p>
+			</div>
+			<?php
+		}
+	}
+}
+add_action( 'admin_notices', 'bytesis_donation_checkout_notice' );

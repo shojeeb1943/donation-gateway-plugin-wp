@@ -1,239 +1,327 @@
-/* Bytesis Frontend Design */
+/* Bytesis Donation Form — Pixel-perfect Figma match */
 
-@font-face {
-    font-family: 'bytesisSans';
-    src: local('-apple-system'), local('BlinkMacSystemFont'), local('Segoe UI'), local('Roboto');
-}
-
-@font-face {
-    font-family: 'bytesisMono';
-    src: local('Menlo'), local('Consolas'), local('monospace');
-}
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap');
 
 /* =========================================
-   FORM WRAPPER — Card with subtle shadow
+   FORM CARD
    ========================================= */
 .bytesis-donation-form-wrapper {
-    font-family: 'bytesisSans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    color: #000000;
-    max-width: 520px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    gap: 32px;
+    width: 612px;
+    max-width: 100%;
+    background: #FFFFFF;
+    border: 1px solid #EBEBEB;
+    border-radius: 12px;
     margin: 0 auto;
-    background: #ffffff;
-    padding: 40px 36px;
-    border-radius: 8px;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-    font-feature-settings: "kern" 1;
+    font-family: 'Geist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Inner frame */
+.bytesis-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    gap: 24px;
+    width: 100%;
 }
 
 /* =========================================
-   HEADER — Title & Subtitle
+   HEADER — Title + Subtitle
    ========================================= */
 .bytesis-form-header {
-    margin-bottom: 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    gap: 8px;
+    width: 100%;
 }
 
 .bytesis-form-title {
+    font-family: 'Geist', sans-serif;
+    font-style: normal;
+    font-weight: 600;
     font-size: 24px;
-    font-weight: 700;
-    line-height: 1.2;
+    line-height: 32px;
     letter-spacing: -0.5px;
-    color: #000000;
-    margin: 0 0 8px 0;
+    color: #03030B;
+    margin: 0;
 }
 
 .bytesis-form-subtitle {
-    font-size: 14px;
-    font-weight: 330;
-    line-height: 1.5;
-    letter-spacing: -0.1px;
-    color: #555555;
+    font-family: 'Geist', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: -0.5px;
+    color: #03030B;
+    opacity: 0.8;
     margin: 0;
 }
 
 /* =========================================
-   FORM GROUPS & LAYOUT
+   FORM FIELDS CONTAINER
    ========================================= */
-.bytesis-form-group {
-    margin-bottom: 20px;
+.bytesis-fields-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    gap: 16px;
+    width: 100%;
 }
 
-/* Side-by-side row (Email + Phone) */
+/* =========================================
+   INDIVIDUAL FIELD GROUP (label + input)
+   ========================================= */
+.bytesis-form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    gap: 8px;
+    width: 100%;
+}
+
+/* =========================================
+   SIDE-BY-SIDE ROW (Email + Phone)
+   ========================================= */
 .bytesis-form-row {
     display: flex;
-    gap: 16px;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0;
+    gap: 10px;
+    width: 100%;
 }
 
 .bytesis-form-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    gap: 8px;
     flex: 1;
     min-width: 0;
 }
 
 /* =========================================
-   LABELS — Mono uppercase
+   LABELS
    ========================================= */
-.bytesis-mono-label {
-    font-family: 'bytesisSans', sans-serif;
-    font-size: 14px;
-    font-weight: 480;
-    letter-spacing: normal;
-    color: #000000;
-    display: block;
-    margin-bottom: 6px;
+.bytesis-label {
+    font-family: 'Geist', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: -0.02em;
+    color: #03030B;
 }
 
 /* =========================================
-   INPUTS & SELECT
+   TEXT INPUTS & SELECT
    ========================================= */
 .bytesis-input {
-    width: 100%;
-    padding: 12px 14px;
-    font-family: 'bytesisSans', sans-serif;
-    font-size: 15px;
-    font-weight: 330;
-    letter-spacing: -0.14px;
-    color: #000000;
-    background-color: #ffffff;
-    border: 1px solid #d9d9d9;
-    border-radius: 6px;
-    transition: border-color 0.2s;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 20px;
+    gap: 8px;
+    width: 100%;
+    height: 52px;
+    background: #FFFFFF;
+    border: 1px solid #EBEBEB;
+    border-radius: 6px;
+    font-family: 'Geist', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.4px;
+    color: #03030B;
+    outline: none;
+    transition: border-color 0.15s;
 }
 
 .bytesis-input::placeholder {
-    color: #999999;
-    font-weight: 330;
+    color: #7B7B7B;
+    font-weight: 400;
 }
 
 .bytesis-input:focus {
-    outline: none;
-    border-color: #000000;
-    box-shadow: 0 0 0 2px rgba(0,0,0,0.06);
+    border-color: #0077FF;
 }
 
+/* Select dropdown */
 select.bytesis-input {
     appearance: none;
     -webkit-appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 8.5L1 3.5h10z'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23141B34' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
-    background-position: right 14px center;
-    padding-right: 36px;
+    background-position: right 16px center;
+    background-size: 24px;
+    padding-right: 48px;
+    cursor: pointer;
 }
 
 /* =========================================
-   AMOUNT BUTTONS — Pill preset buttons
+   AMOUNT BUTTONS ROW
    ========================================= */
 .bytesis-amount-buttons {
     display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0;
+    gap: 10px;
+    width: 100%;
 }
 
 .bytesis-preset-btn {
-    background-color: #ffffff;
-    color: #000000;
-    border: 1px solid #d9d9d9;
-    border-radius: 50px;
-    padding: 8px 20px;
-    font-size: 14px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 20px;
+    gap: 8px;
+    height: 52px;
+    flex: 1;
+    background: #FFFFFF;
+    border: 1px solid #EBEBEB;
+    border-radius: 6px;
+    font-family: 'Geist', sans-serif;
+    font-style: normal;
     font-weight: 400;
-    letter-spacing: -0.1px;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: -0.4px;
+    color: #7B7B7B;
     cursor: pointer;
-    transition: all 0.15s ease;
-    font-family: 'bytesisSans', sans-serif;
-    line-height: 1.4;
+    transition: border-color 0.15s;
 }
 
 .bytesis-preset-btn:hover {
-    background-color: #f5f5f5;
-    border-color: #bbb;
+    border-color: #ccc;
 }
 
 .bytesis-preset-btn.active {
-    background-color: #000000;
-    color: #ffffff;
-    border-color: #000000;
+    border: 1px solid #0077FF;
+    color: #03030B;
 }
 
 .bytesis-preset-btn:focus {
-    outline: dashed 2px #000000;
-    outline-offset: 2px;
+    outline: none;
+    border-color: #0077FF;
 }
 
-/* Custom amount input spacing */
+/* Custom amount input */
 .bytesis-custom-amount-wrapper {
-    margin-top: 12px;
+    width: 100%;
+}
+
+.bytesis-custom-amount-wrapper .bytesis-input {
+    height: 54px;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: -0.5px;
+    color: #03030B;
 }
 
 /* =========================================
-   DONATE BUTTON — Full-width black pill
+   DONATE BUTTON
    ========================================= */
 .bytesis-btn-donate {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0 40px;
     width: 100%;
-    display: block;
-    background-color: #000000;
-    color: #ffffff;
+    height: 56px;
+    background: #0077FF;
     border: none;
-    border-radius: 50px;
-    padding: 14px 24px;
+    border-radius: 12px;
+    font-family: 'Geist', sans-serif;
+    font-style: normal;
+    font-weight: 500;
     font-size: 16px;
-    font-weight: 480;
-    letter-spacing: normal;
+    line-height: 22px;
+    letter-spacing: -0.7px;
+    color: #FFFFFF;
     cursor: pointer;
-    transition: opacity 0.2s;
-    font-family: 'bytesisSans', sans-serif;
+    transition: opacity 0.15s;
 }
 
 .bytesis-btn-donate:hover {
-    opacity: 0.85;
+    opacity: 0.9;
 }
 
 .bytesis-btn-donate:focus {
-    outline: dashed 2px #000000;
+    outline: 2px solid #0077FF;
     outline-offset: 2px;
 }
 
 .bytesis-btn-donate:disabled {
-    opacity: 0.45;
+    opacity: 0.5;
     cursor: not-allowed;
-}
-
-.bytesis-form-submit {
-    margin-top: 8px;
-    margin-bottom: 12px;
 }
 
 /* =========================================
    TERMS TEXT
    ========================================= */
 .bytesis-form-terms {
-    font-size: 12px;
-    font-weight: 330;
-    color: #888888;
+    font-family: 'Geist', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
     text-align: center;
+    letter-spacing: -0.64px;
+    color: #7B7B7B;
     margin: 0;
-    line-height: 1.5;
+    width: 100%;
 }
 
 .bytesis-form-terms a {
-    color: #000000;
+    color: #0077FF;
     text-decoration: underline;
 }
 
 .bytesis-form-terms a:hover {
-    opacity: 0.7;
+    opacity: 0.8;
 }
 
 /* =========================================
-   RESPONSIVE — Stack email/phone on mobile
+   RESPONSIVE
    ========================================= */
-@media (max-width: 560px) {
+@media (max-width: 640px) {
     .bytesis-donation-form-wrapper {
-        padding: 28px 20px;
-        max-width: 100%;
+        width: 100%;
+        padding: 24px 20px;
+        border-radius: 8px;
     }
 
     .bytesis-form-row {
         flex-direction: column;
-        gap: 0;
+        gap: 16px;
+    }
+
+    .bytesis-amount-buttons {
+        flex-wrap: wrap;
+    }
+
+    .bytesis-preset-btn {
+        min-width: calc(33% - 8px);
     }
 }
